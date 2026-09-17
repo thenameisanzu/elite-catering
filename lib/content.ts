@@ -2,13 +2,18 @@ export const brand = {
   name: "Elite Group",
   tagline: "Catering and Events",
   since: "2015",
-  location: "Kottayam, Kerala",
+  location: "Pulikamala road, Anicadu, Kerala 689589",
+  address: "Pulikamala road, Anicadu, Kerala 689589",
+  rating: "4.9",
+  reviewCount: "202",
   phone: "+91 97783 68993",
   phoneDisplay: "+91 97783 68993",
   phoneHref: "tel:+919778368993",
   instagram: "https://www.instagram.com/elite._group._/",
   instagramHandle: "@elite._group._",
   waHref: "https://wa.me/919778368993",
+  mapsUrl: "https://www.google.com/maps/search/?api=1&query=Elite+group+catering+services+Pulikamala+road+Anicadu+Kerala+689589",
+  directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=Elite+group+catering+services+Pulikamala+road+Anicadu+Kerala+689589",
 };
 
 export const hero = {
