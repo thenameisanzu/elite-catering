@@ -19,22 +19,23 @@ export default function Services() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-linen/10 border border-sage-light/30 text-sage-light text-xs font-semibold uppercase tracking-widest mb-4">
-            <span>👑 Signature Expertise</span>
+            <span>✨ Complete Wedding &amp; Event Solutions</span>
           </div>
 
-          <h2 className="font-display text-3xl sm:text-5xl font-normal text-linen tracking-tight mb-4">
-            Curated Services for <br />
-            <span className="font-script text-4xl sm:text-6xl text-sage-light inline-block mt-1 font-normal">
-              Regal Celebrations
-            </span>
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-normal text-linen tracking-tight mb-3">
+            WHAT WE OFFER
           </h2>
 
-          <p className="text-sm sm:text-base text-linen/75 leading-relaxed font-light">
-            Every dish and table setting is meticulously crafted in-house to create an enchanting culinary ambiance from the moment your guests arrive.
+          <p className="font-script text-3xl sm:text-5xl text-sage-light mb-4 font-normal">
+            Bespoke Celebration Artistry
+          </p>
+
+          <p className="text-sm sm:text-base text-linen/75 leading-relaxed font-light text-balance">
+            From regal stage architecture and chauffeured luxury bridal cars to cinematic 4K photography and turnkey event coordination across Kerala.
           </p>
         </div>
 
-        {/* Interactive Split Grid (Inspired by St. Antony's) */}
+        {/* Interactive Split Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           {/* Left Column: Numbered Service Switchers */}
           <div className="lg:col-span-5 flex flex-col gap-3">
@@ -97,7 +98,7 @@ export default function Services() {
                 className="h-full rounded-3xl bg-linen/5 border border-sage/40 p-6 sm:p-8 flex flex-col justify-between backdrop-blur-xl relative overflow-hidden shadow-2xl"
               >
                 <div>
-                  {/* Stock Photo Banner */}
+                  {/* Photo Banner */}
                   <div className="relative h-64 sm:h-72 rounded-2xl overflow-hidden mb-6 border border-linen/15 group">
                     <Image
                       src={currentService.image}
@@ -146,11 +147,11 @@ export default function Services() {
                 {/* Bottom WhatsApp CTA Bar */}
                 <div className="pt-5 border-t border-linen/10 flex flex-col sm:flex-row items-center justify-between gap-4">
                   <span className="text-xs text-linen/60 text-center sm:text-left font-light">
-                    Customized according to your venue, guest count &amp; theme.
+                    Customized according to your venue, timeline &amp; wedding theme.
                   </span>
                   <a
                     href={`https://wa.me/919778368993?text=${encodeURIComponent(
-                      `Hello Elite Group! 🍽️ I am interested in your "${currentService.title}" service for my upcoming event. Could you please share more details and availability?`
+                      `Hello Elite Group! ✨ I am inquiring about your "${currentService.title}" service for our upcoming event. Could you please share options and quote details?`
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"

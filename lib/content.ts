@@ -179,63 +179,63 @@ export const estimatorAddOns = [
 
 export const services = [
   {
-    id: "wedding",
-    title: "Grand Wedding Catering & Royal Sadya",
-    shortDesc: "Complete 26-course banana leaf sadya & evening reception live stations.",
+    id: "stage-decor",
+    title: "Stage Decor & Bespoke Floral Architecture",
+    shortDesc: "Enchanting mandaps, floral backdrops & architectural ambient lighting.",
     description:
-      "From morning traditional sadya feasts served on fresh plantain leaves to magnificent evening reception buffets with interactive live cooking pavilions. Tailored for 100 to 2,000+ guests with dedicated pure-veg cooking facilities.",
-    image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1600&auto=format&fit=crop",
-    specialty: "Flagship Specialty",
+      "Transforming wedding stages into breathtaking visual masterpieces. From opulent temple-inspired fresh floral mandaps and contemporary geometric arches to crystal chandeliers and bespoke walkway decor tailored to your wedding palette.",
+    image: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop",
+    specialty: "Couture Visual Aesthetics",
     features: [
-      "Authentic 26-Item Kerala Sadya with 4 Payasams",
-      "Live Theatrical Food Pavilions & Seafood Tawas",
-      "Uniformed Hospitality & Silver Chafing Service",
-      "Dedicated Pure-Veg Independent Kitchen Vessels",
-    ],
-  },
-  {
-    id: "live-stations",
-    title: "Theatrical Live Counters & Food Theatres",
-    shortDesc: "Interactive live appam, tandoor, chaat, & dessert wheel counters.",
-    description:
-      "Transforming mealtime into an immersive culinary performance. Fresh hopper appams with stew, charcoal-grilled tandoori kebabs, live street chaat pani-puri bars, and rotating dessert ferris wheels.",
-    image: "https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=1600&auto=format&fit=crop",
-    specialty: "Interactive Gastronomy",
-    features: [
-      "Hot Appam & Syrian Bone-in Mutton Stew Bar",
-      "Charcoal BBQ, Seekh Kebabs & Fish Pollichathu",
-      "Cold-Stone Rolled Ice Cream & Dessert Wheels",
-      "Tender Coconut (Elaneer) Welcome Cooler Bar",
-    ],
-  },
-  {
-    id: "premium-events",
-    title: "Corporate Galas & VIP Milestone Banquets",
-    shortDesc: "Executive hospitality, multi-cuisine luxury buffets & curated service.",
-    description:
-      "Silver jubilees, corporate award banquets, engagements, and VIP milestone gatherings across Kerala. Plated multi-course menus and continental selections paired with seamless event management.",
-    image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=1600&auto=format&fit=crop",
-    specialty: "Corporate & VIP Luxury",
-    features: [
-      "Multi-Cuisine Continental & Indian Curated Menus",
-      "Fine China Crockery & Lead-Crystal Glassware",
-      "Punctual Timelines & Dedicated Floor Managers",
-      "Customized Menu Cards & Monogram Table Styling",
+      "Exotic Fresh Floral Mandaps & Canopies",
+      "Customized Stage Illumination & Fairy Light Ceilings",
+      "Traditional Brass Nilavilakku & Urli Styling",
+      "Theme-Coordinated Backdrop & Walkway Draping",
     ],
   },
   {
     id: "wedding-cars",
-    title: "Luxury Decorated Wedding Fleet",
-    shortDesc: "Floral coordinated premium wedding car arrangements.",
+    title: "Luxury Wedding Fleet & Bridal Styling",
+    shortDesc: "Chauffeured luxury sedans, vintage classics & exotic floral styling.",
     description:
-      "Complete your grand arrival with our luxury wedding car arrangements, customized with natural exotic florals that match your stage and bouquet aesthetic.",
+      "Make an unforgettable entrance with our immaculate bridal fleet. Featuring chauffeured premium sedans, luxury convertibles, and vintage cars styled with fresh exotic botanicals, orchids, and custom ribbonry.",
     image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1600&auto=format&fit=crop",
     specialty: "Royal Arrival",
     features: [
-      "Exotic Floral Bouquets & Bonnet Styling",
-      "Chauffeured Luxury Sedans & Vintage Convertibles",
-      "Coordinated with Ceremony & Reception Timelines",
-      "Pristine Interior Grooming & Air Conditioning",
+      "Chauffeured Mercedes, BMW, Audi & Vintage Cars",
+      "Fresh Orchid & Rose Bonnet Floral Arrangements",
+      "Coordinated Timelines for Church, Temple & Reception",
+      "Pristine Grooming & White-Glove Chauffeur Service",
+    ],
+  },
+  {
+    id: "photography",
+    title: "Cinematic Photography & Visual Storytelling",
+    shortDesc: "Candid emotional frames, 4K aerial drone coverage & luxury heirloom albums.",
+    description:
+      "Capturing the soulful romance, raw laughter, and grand rituals of your celebration. Our master cinematographers and photo artists craft heirloom-grade wedding films, cinematic teasers, and handcrafted Italian leather photo books.",
+    image: "https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=1600&auto=format&fit=crop",
+    specialty: "Timeless Memories",
+    features: [
+      "Candid Photojournalism & Traditional Portraiture",
+      "Ultra-HD 4K Cinematic Wedding Films & Teasers",
+      "High-Definition Aerial Drone Cinematography",
+      "Premium Flush-Mount Italian Silk/Leather Photo Albums",
+    ],
+  },
+  {
+    id: "events-management",
+    title: "End-to-End VIP Event Management & Hospitality",
+    shortDesc: "Turnkey celebration coordination, hospitality concierges & flawless execution.",
+    description:
+      "Seamlessly orchestrating every moving piece of your celebration from timeline management and vendor alignment to guest hospitality desks and floor management — ensuring you and your family celebrate without a moment of stress.",
+    image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=1600&auto=format&fit=crop",
+    specialty: "Zero-Stress Perfection",
+    features: [
+      "Turnkey Wedding Coordination & Timeline Management",
+      "Dedicated Floor Directors & Guest Hospitality Desks",
+      "Live Sound, Acoustics & Ambient Lighting Production",
+      "Artist & Traditional Cultural Performance Curation",
     ],
   },
 ];
