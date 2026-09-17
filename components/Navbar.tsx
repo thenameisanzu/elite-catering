@@ -65,7 +65,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <a
             href={brand.phoneHref}
-            className={`text-xs font-semibold px-4 py-2 rounded-full border transition-all ${
+            className={`text-xs font-semibold px-4 py-2 rounded-full border transition-all whitespace-nowrap shrink-0 ${
               scrolled
                 ? "border-sage text-ink hover:bg-sage/10"
                 : "border-linen/30 text-linen hover:bg-linen/10"
@@ -77,7 +77,7 @@ export default function Navbar() {
             href={brand.waHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs px-5 py-2.5 bg-sage text-linen font-bold rounded-full hover:bg-sage-deep transition-all shadow-md hover:scale-[1.02] border border-sage-light/30 flex items-center gap-1.5"
+            className="text-xs px-5 py-2.5 bg-sage text-linen font-bold rounded-full hover:bg-sage-deep transition-all shadow-md hover:scale-[1.02] border border-sage-light/30 flex items-center gap-1.5 whitespace-nowrap shrink-0"
           >
             <WhatsAppIcon className="w-4 h-4 fill-current" />
             <span>WhatsApp</span>

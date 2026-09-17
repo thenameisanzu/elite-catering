@@ -92,14 +92,14 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.45, duration: 0.7 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-10 w-full max-w-md"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-10 w-full max-w-2xl"
         >
           {/* WhatsApp Booking CTA */}
           <a
             href="https://wa.me/919778368993?text=Hi%20Elite%20Group%20Catering%2C%20I%20would%20like%20to%20inquire%20about%20catering%20and%20schedule%20a%20menu%20tasting."
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-sage hover:bg-sage-deep text-linen transition-all flex items-center justify-center gap-3 shadow-[0_4px_25px_rgba(136,171,142,0.4)] group font-bold border border-sage-light/40 hover:scale-[1.02]"
+            className="w-full sm:w-auto px-6 sm:px-7 py-3.5 rounded-2xl bg-sage hover:bg-sage-deep text-linen transition-all flex items-center justify-center gap-3 shadow-[0_4px_25px_rgba(136,171,142,0.4)] group font-bold border border-sage-light/40 hover:scale-[1.02] whitespace-nowrap shrink-0"
           >
             <WhatsAppIcon className="w-5 h-5 text-emerald-400 fill-current shrink-0 group-hover:scale-110 transition-transform" />
             <span className="text-sm font-semibold tracking-wide">Inquire on WhatsApp</span>
@@ -111,20 +111,20 @@ export default function Hero() {
           {/* Check Date Availability */}
           <a
             href="#availability"
-            className="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-linen/10 hover:bg-linen/20 border border-linen/20 backdrop-blur-xl text-linen transition-all flex items-center justify-center gap-2 text-sm font-semibold group hover:scale-[1.02]"
+            className="w-full sm:w-auto px-5 sm:px-6 py-3.5 rounded-2xl bg-linen/10 hover:bg-linen/20 border border-linen/20 backdrop-blur-xl text-linen transition-all flex items-center justify-center gap-2 text-sm font-semibold group hover:scale-[1.02] whitespace-nowrap shrink-0"
           >
             <span>📅 Check Availability</span>
             <span className="group-hover:translate-x-1 transition-transform">→</span>
           </a>
 
-          {/* Direct Phone Dial */}
+          {/* Direct Phone Dial (Single Line, Never Wraps) */}
           <a
             href="tel:+919778368993"
-            className="w-full sm:w-auto px-5 py-3.5 rounded-2xl bg-forest-deep/80 hover:bg-forest-deep border border-sage-light/30 backdrop-blur-xl text-linen/90 transition-all flex items-center justify-center gap-2 text-xs font-semibold hover:scale-[1.02]"
+            className="w-full sm:w-auto px-5 py-3.5 rounded-2xl bg-forest-deep/80 hover:bg-forest-deep border border-sage-light/30 backdrop-blur-xl text-linen/90 transition-all flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold hover:scale-[1.02] whitespace-nowrap shrink-0"
             title="Call Elite Group"
           >
             <span>📞</span>
-            <span>Call Us</span>
+            <span className="whitespace-nowrap">Call Us</span>
           </a>
         </motion.div>
 
