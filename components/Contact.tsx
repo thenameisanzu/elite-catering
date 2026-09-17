@@ -1,7 +1,6 @@
 "use client";
 
 import { brand } from "@/lib/content";
-import WhatsAppIcon from "./WhatsAppIcon";
 
 const travelDistances = [
   { city: "Pala", time: "25 mins", dist: "18 km" },
@@ -166,13 +165,12 @@ export default function Contact() {
               {/* Action Buttons */}
               <div className="pt-6 border-t border-sand space-y-2.5">
                 <a
-                  href="https://wa.me/919778368993?text=Hi%20Elite%20Group%2C%20please%20send%20me%20your%20Google%20Maps%20location%20pin%20and%20directions."
+                  href="https://maps.app.goo.gl/1w9R5K6sUjM4L1yN7"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3 px-4 rounded-xl bg-sage hover:bg-sage-deep text-linen font-bold text-xs transition-all shadow-md flex items-center justify-center gap-2 hover:scale-[1.02]"
+                  className="w-full py-3 px-4 rounded-xl bg-forest-deep hover:bg-sage text-linen font-bold text-xs transition-all shadow-md flex items-center justify-center gap-2 hover:scale-[1.02]"
                 >
-                  <WhatsAppIcon className="w-4 h-4 fill-current shrink-0" />
-                  <span>Send Location Pin to WhatsApp</span>
+                  <span>📍 Open in Google Maps</span>
                 </a>
 
                 <a

@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import WhatsAppIcon from "./WhatsAppIcon";
 
 const stats = [
   { value: "10+", label: "Years of Culinary Legacy", sub: "Since 2015 in Kottayam" },
@@ -112,13 +111,10 @@ export default function About() {
                 Explore Food Packages →
               </a>
               <a
-                href="https://wa.me/919778368993?text=Hi%20Elite%20Group%2C%20I%20would%20like%20to%20discuss%20our%20upcoming%20event%20catering."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-sage text-sage text-xs sm:text-sm font-semibold hover:bg-sage/10 transition-colors"
+                href="#services"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-sage text-sage text-xs sm:text-sm font-semibold hover:bg-sage/10 transition-colors"
               >
-                <WhatsAppIcon className="w-4 h-4 fill-current" />
-                <span>Speak with Executive Chef</span>
+                View Event Services →
               </a>
             </div>
           </div>

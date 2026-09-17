@@ -241,11 +241,6 @@ export default function MenuSection() {
     }
   };
 
-  const getWhatsAppLink = (packageName: string, price: string) => {
-    const cuisineText = selectedCuisines.length > 0 ? `\n- Preferred Cuisines: ${selectedCuisines.join(", ")}` : "";
-    const text = `Hi Elite Group Catering! 👋\n\nI am interested in your *${packageName}* (${price}).${cuisineText}\nCould you please share the detailed dish catalogue and discuss availability for our upcoming event?`;
-    return `https://wa.me/919778368993?text=${encodeURIComponent(text)}`;
-  };
 
   const displayedPackages =
     activePackageId === "all"
@@ -497,12 +492,10 @@ export default function MenuSection() {
                   </span>
 
                   <a
-                    href={getWhatsAppLink(pkg.name, pkg.priceRange)}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#date-checker"
                     className="px-5 py-2.5 rounded-xl bg-forest-deep text-linen hover:bg-sage hover:text-linen font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center gap-1.5 group hover:scale-105"
                   >
-                    <span>TALK TO US</span>
+                    <span>Book Package</span>
                     <span className="group-hover:translate-x-0.5 transition-transform">→</span>
                   </a>
                 </div>
@@ -607,18 +600,15 @@ export default function MenuSection() {
                 Need the complete printable PDF menu?
               </p>
               <p className="text-[11px] sm:text-xs text-ink/70 font-light">
-                Receive the detailed dish catalogue in English &amp; Malayalam on WhatsApp.
+                Explore our full selection of dishes, live counters, and catering packages.
               </p>
             </div>
           </div>
           <a
-            href="https://wa.me/919778368993?text=Hi%20Elite%20Group%20Catering%2C%20please%20send%20me%20your%20complete%20PDF%20Menu%20catalogue."
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contact"
             className="w-full sm:w-auto px-5 py-2.5 rounded-2xl bg-forest-deep text-linen hover:bg-sage text-xs font-bold transition-all shadow-md flex items-center justify-center gap-2 shrink-0 hover:scale-105"
           >
-            <WhatsAppIcon className="w-4 h-4 fill-current text-emerald-400" />
-            <span>Get PDF on WhatsApp</span>
+            <span>Request Menu Catalogue →</span>
           </a>
         </div>
 
@@ -664,13 +654,10 @@ export default function MenuSection() {
               Need custom dietary arrangements or pure-veg sweet stations?
             </span>
             <a
-              href="https://wa.me/919778368993?text=Hi%20Elite%20Group%20Catering%2C%20I%20would%20like%20to%20customize%20our%20dessert%20and%20live%20counter%20menu."
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#date-checker"
               className="w-full sm:w-auto px-5 py-2.5 rounded-full bg-sage hover:bg-sage-deep text-linen font-bold text-xs transition-all shadow-md border border-sage-light/30 flex items-center justify-center gap-1.5 hover:scale-105"
             >
-              <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
-              <span>Customize Menu on WhatsApp →</span>
+              <span>Explore Custom Menus →</span>
             </a>
           </div>
         </div>

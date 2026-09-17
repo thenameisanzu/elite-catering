@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { brand } from "@/lib/content";
 import DiamondMark from "./DiamondMark";
-import WhatsAppIcon from "./WhatsAppIcon";
 
 const links = [
   { href: "#about", label: "About" },
@@ -74,13 +73,11 @@ export default function Navbar() {
             📞 Call Us
           </a>
           <a
-            href={brand.waHref}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#date-checker"
             className="text-xs px-5 py-2.5 bg-sage text-linen font-bold rounded-full hover:bg-sage-deep transition-all shadow-md hover:scale-[1.02] border border-sage-light/30 flex items-center gap-1.5 whitespace-nowrap shrink-0"
           >
-            <WhatsAppIcon className="w-4 h-4 fill-current" />
-            <span>WhatsApp</span>
+            <span>Book Event</span>
+            <span>→</span>
           </a>
         </div>
 
@@ -128,13 +125,11 @@ export default function Navbar() {
               📞 Call Us
             </a>
             <a
-              href={brand.waHref}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#date-checker"
+              onClick={() => setOpen(false)}
               className="text-xs py-2.5 text-center bg-sage text-linen font-bold rounded-full shadow-md flex items-center justify-center gap-2"
             >
-              <WhatsAppIcon className="w-4 h-4 fill-current" />
-              <span>WhatsApp Chat</span>
+              <span>Check Date Availability →</span>
             </a>
           </div>
         </motion.div>

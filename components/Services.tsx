@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { services } from "@/lib/content";
-import WhatsAppIcon from "./WhatsAppIcon";
 
 export default function Services() {
   const [activeIdx, setActiveIdx] = useState(0);
@@ -168,21 +167,16 @@ export default function Services() {
                   </div>
                 </div>
 
-                {/* Bottom WhatsApp CTA Bar */}
+                {/* Bottom CTA Bar */}
                 <div className="pt-4 border-t border-linen/10 flex flex-col sm:flex-row items-center justify-between gap-3">
                   <span className="text-[11px] sm:text-xs text-linen/60 text-center sm:text-left font-light">
-                    Customized according to your venue &amp; theme.
+                    Customized according to your venue &amp; event theme.
                   </span>
                   <a
-                    href={`https://wa.me/919778368993?text=${encodeURIComponent(
-                      `Hello Elite Group! ✨ I am inquiring about your "${currentService.title}" service for our upcoming event. Could you please share options and quote details?`
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-sage text-linen font-bold text-xs sm:text-sm hover:bg-sage-deep hover:scale-[1.02] shadow-lg transition-all"
+                    href="#date-checker"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-sage text-linen font-bold text-xs sm:text-sm hover:bg-sage-deep hover:scale-[1.02] shadow-lg transition-all"
                   >
-                    <WhatsAppIcon className="w-4 h-4 fill-current shrink-0" />
-                    <span>Inquire About This Service</span>
+                    <span>Check Service Availability →</span>
                   </a>
                 </div>
               </motion.div>
