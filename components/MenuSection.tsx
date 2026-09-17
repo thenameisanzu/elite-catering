@@ -552,6 +552,50 @@ export default function MenuSection() {
               {showAllCuisines ? "Show less cuisines ↑" : `+ View all ${cuisinesList.length} cuisines ↓`}
             </button>
           </div>
+
+          {/* Active WhatsApp Inquiry Action Panel for Selected Cuisines */}
+          <AnimatePresence>
+            {selectedCuisines.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 10, height: 0 }}
+                animate={{ opacity: 1, y: 0, height: "auto" }}
+                exit={{ opacity: 0, y: 10, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="mt-6 pt-5 border-t border-sand flex flex-col sm:flex-row items-center justify-between gap-4 bg-sand/25 p-4 rounded-2xl"
+              >
+                <div className="text-left">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-sage/20 text-sage">
+                      {selectedCuisines.length} {selectedCuisines.length === 1 ? "Cuisine" : "Cuisines"} Selected
+                    </span>
+                  </div>
+                  <p className="text-xs text-ink/80 font-medium line-clamp-1">
+                    {selectedCuisines.join(", ")}
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-3 w-full sm:w-auto">
+                  <button
+                    onClick={() => setSelectedCuisines([])}
+                    className="text-xs text-ink/50 hover:text-ink transition-colors px-2 py-1"
+                  >
+                    Clear
+                  </button>
+                  <a
+                    href={`https://wa.me/919778368993?text=${encodeURIComponent(
+                      `Hello Elite Group Catering! 👋\n\nI would like to inquire about a customized catering menu for our upcoming event.\n\n🍽️ Preferred Cuisines:\n- ${selectedCuisines.join("\n- ")}\n\nPlease share your signature menu options and pricing!`
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-sage hover:bg-sage-deep text-linen font-bold text-xs transition-all shadow-md flex items-center justify-center gap-2 hover:scale-105"
+                  >
+                    <WhatsAppIcon className="w-4 h-4 fill-current shrink-0" />
+                    <span>Inquire with Selected Cuisines →</span>
+                  </a>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         {/* 4. Download Menu Brochure CTA Strip */}
