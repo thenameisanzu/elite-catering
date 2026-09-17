@@ -8,10 +8,9 @@ import DiamondMark from "./DiamondMark";
 const links = [
   { href: "#about", label: "About" },
   { href: "#services", label: "Services" },
-  { href: "#work", label: "Our Work" },
-  { href: "#stories", label: "Stories" },
-  { href: "#faq", label: "FAQ" },
   { href: "#availability", label: "Availability" },
+  { href: "#faq", label: "FAQ" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -100,28 +99,42 @@ export default function Navbar() {
         </button>
       </nav>
 
-      <motion.div
-        initial={false}
-        animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
-        transition={{ duration: 0.35, ease: "easeInOut" }}
-        className="md:hidden overflow-hidden bg-linen border-t border-sage-light/30 shadow-lg"
-      >
-        <div className="flex flex-col px-6 py-4 gap-4">
+      {/* Mobile Drawer */}
+      {open && (
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          exit={{ opacity: 0, height: 0 }}
+          className="md:hidden bg-linen border-b border-sage-light/40 px-6 py-6 space-y-4 shadow-xl"
+        >
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="text-base text-ink/80 hover:text-sage font-medium transition-colors"
+              className="block text-sm uppercase tracking-wider font-semibold text-ink hover:text-sage"
             >
               {l.label}
             </a>
           ))}
-          <a href={brand.phoneHref} className="text-base font-semibold text-sage">
-            {brand.phone}
-          </a>
-        </div>
-      </motion.div>
+          <div className="pt-4 border-t border-sage-light/30 flex flex-col gap-3">
+            <a
+              href={brand.phoneHref}
+              className="text-xs font-semibold py-2 text-center rounded-full border border-sage text-ink"
+            >
+              📞 Call {brand.phone}
+            </a>
+            <a
+              href={brand.waHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs py-2.5 text-center bg-sage text-linen font-bold rounded-full shadow-md"
+            >
+              💬 WhatsApp Chat
+            </a>
+          </div>
+        </motion.div>
+      )}
     </motion.header>
   );
 }
