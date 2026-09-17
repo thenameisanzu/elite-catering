@@ -229,8 +229,9 @@ const artisanalDesserts = [
 ];
 
 export default function MenuSection() {
-  const [activePackageId, setActivePackageId] = useState<string>("all");
+  const [activePackageId, setActivePackageId] = useState<string>("classy");
   const [selectedCuisines, setSelectedCuisines] = useState<string[]>(["Kerala", "Travancore"]);
+  const [showAllCuisines, setShowAllCuisines] = useState(false);
 
   const toggleCuisine = (c: string) => {
     if (selectedCuisines.includes(c)) {
@@ -252,81 +253,33 @@ export default function MenuSection() {
       : packages.filter((p) => p.id === activePackageId);
 
   return (
-    <section id="menu" className="relative py-28 md:py-36 px-6 md:px-10 bg-canvas text-ink">
+    <section id="menu" className="relative py-20 md:py-36 px-4 sm:px-6 md:px-10 bg-canvas text-ink">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sage/15 border border-sage/30 text-sage text-xs font-semibold uppercase tracking-widest mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sage/15 border border-sage/30 text-sage text-[11px] sm:text-xs font-semibold uppercase tracking-widest mb-3 sm:mb-4">
             <span>🍽️ Curated Culinary Packages</span>
           </div>
 
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-normal text-ink tracking-tight mb-3">
+          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-normal text-ink tracking-tight mb-2 sm:mb-3">
             OUR FOOD MENU
           </h2>
 
-          <p className="font-script text-3xl sm:text-4xl text-sage mb-4 font-normal">
+          <p className="font-script text-2xl sm:text-4xl text-sage mb-3 sm:mb-4 font-normal">
             Welcome to a feast of flavors!
           </p>
 
-          <p className="text-sm sm:text-base text-ink/75 leading-relaxed font-light text-balance">
-            A great meal is more than just food, it&apos;s an experience. At Elite Group, we bring you a menu designed to suit every occasion. Whether you prefer something Standard, a Classy touch, an Elegant affair, an Executive selection, or a Grand spread — your perfect feast starts here.
+          <p className="text-xs sm:text-base text-ink/75 leading-relaxed font-light text-balance max-w-xl mx-auto">
+            A great meal is more than just food, it&apos;s an experience. At Elite Group, we bring you a menu designed to suit every occasion.
           </p>
         </div>
 
-        {/* 1. "WHAT MENU WOULD YOU PREFER?" Interactive Cuisine Selector */}
-        <div className="mb-16 p-6 sm:p-8 rounded-3xl bg-white border border-sand-dark/40 shadow-xl text-center">
-          <span className="text-[10px] sm:text-xs uppercase font-bold tracking-[0.2em] text-ink/60 block mb-1">
-            WHAT MENU
-          </span>
-          <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-normal text-ink tracking-tight mb-6">
-            WOULD YOU PREFER?
-          </h3>
-
-          <p className="text-xs text-ink/60 font-light mb-6">
-            Select your favorite cuisine styles below to customize your wedding feast with our master chefs:
-          </p>
-
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 max-w-4xl mx-auto">
-            {cuisinesList.map((cuisine) => {
-              const isSelected = selectedCuisines.includes(cuisine);
-              return (
-                <button
-                  key={cuisine}
-                  onClick={() => toggleCuisine(cuisine)}
-                  className={`px-4 py-2 rounded-full text-xs font-medium transition-all duration-200 border flex items-center gap-1.5 ${
-                    isSelected
-                      ? "bg-forest-deep text-linen border-forest-deep shadow-md scale-105"
-                      : "bg-sand/30 text-ink/80 border-sand-dark/30 hover:border-sage hover:bg-sand/60"
-                  }`}
-                >
-                  {isSelected && <span className="text-sage-light text-[10px]">✓</span>}
-                  <span>{cuisine}</span>
-                </button>
-              );
-            })}
-          </div>
-
-          {selectedCuisines.length > 0 && (
-            <div className="mt-6 pt-4 border-t border-sand flex flex-col sm:flex-row items-center justify-center gap-3 text-xs text-ink/70">
-              <span>
-                Selected: <strong className="text-ink font-semibold">{selectedCuisines.join(", ")}</strong>
-              </span>
-              <button
-                onClick={() => setSelectedCuisines([])}
-                className="text-[11px] text-sage underline underline-offset-2 hover:text-sage-deep"
-              >
-                Clear all
-              </button>
-            </div>
-          )}
-        </div>
-
-        {/* 2. Menu Package Filter Tabs */}
-        <div className="flex items-center justify-center gap-2 overflow-x-auto pb-4 mb-10 no-scrollbar select-none">
+        {/* 1. Sleek Mobile-Friendly Package Tier Selector */}
+        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-3 mb-8 no-scrollbar select-none">
           <button
             onClick={() => setActivePackageId("all")}
-            className={`px-4 py-2.5 rounded-2xl text-xs font-bold transition-all shrink-0 border ${
+            className={`px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-2xl text-xs font-bold transition-all shrink-0 border whitespace-nowrap ${
               activePackageId === "all"
                 ? "bg-sage text-linen border-sage shadow-md"
                 : "bg-white text-ink/70 border-sand-dark/40 hover:border-sage hover:bg-sand/30"
@@ -338,19 +291,19 @@ export default function MenuSection() {
             <button
               key={pkg.id}
               onClick={() => setActivePackageId(pkg.id)}
-              className={`px-4 py-2.5 rounded-2xl text-xs font-bold transition-all shrink-0 border ${
+              className={`px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-2xl text-xs font-bold transition-all shrink-0 border whitespace-nowrap ${
                 activePackageId === pkg.id
                   ? "bg-sage text-linen border-sage shadow-md"
                   : "bg-white text-ink/70 border-sand-dark/40 hover:border-sage hover:bg-sand/30"
               }`}
             >
-              {pkg.name} ({pkg.priceRange})
+              {pkg.name.replace(" MENU", "")} ({pkg.priceRange})
             </button>
           ))}
         </div>
 
-        {/* 3. Menu Cards Grid (Displaying All 5 Packages) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 items-stretch">
+        {/* 2. Menu Cards Grid */}
+        <div className={`grid gap-6 sm:gap-8 mb-12 items-stretch ${activePackageId === "all" ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3" : "grid-cols-1 max-w-2xl mx-auto"}`}>
           <AnimatePresence mode="popLayout">
             {displayedPackages.map((pkg) => (
               <motion.div
@@ -359,8 +312,8 @@ export default function MenuSection() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.3 }}
-                className={`rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 relative ${
+                transition={{ duration: 0.25 }}
+                className={`rounded-3xl p-5 sm:p-8 flex flex-col justify-between transition-all duration-300 relative ${
                   pkg.badge
                     ? "bg-white border-2 border-sage shadow-2xl ring-4 ring-sage/15"
                     : "bg-white/95 border border-sand-dark/40 shadow-lg hover:shadow-xl hover:border-sage/40"
@@ -368,7 +321,7 @@ export default function MenuSection() {
               >
                 {/* Badge if present */}
                 {pkg.badge && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-forest-deep text-sage-light text-[10px] sm:text-[11px] font-bold tracking-wider uppercase shadow-md border border-sage/30 flex items-center gap-1.5 shrink-0 whitespace-nowrap">
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3.5 py-1 rounded-full bg-forest-deep text-sage-light text-[10px] sm:text-[11px] font-bold tracking-wider uppercase shadow-md border border-sage/30 flex items-center gap-1.5 shrink-0 whitespace-nowrap">
                     <span>✨</span>
                     <span>{pkg.badge}</span>
                   </div>
@@ -376,17 +329,17 @@ export default function MenuSection() {
 
                 <div>
                   {/* Header: Title & Rate */}
-                  <div className="flex items-start justify-between border-b border-sand pb-5 mb-5">
+                  <div className="flex items-start justify-between border-b border-sand pb-4 mb-4">
                     <div>
-                      <h3 className="font-display text-xl font-bold tracking-tight text-ink">
+                      <h3 className="font-display text-lg sm:text-xl font-bold tracking-tight text-ink">
                         {pkg.name}
                       </h3>
                     </div>
                     <div className="text-right">
-                      <span className="text-[10px] uppercase tracking-widest text-ink/60 font-semibold block">
+                      <span className="text-[9px] uppercase tracking-widest text-ink/60 font-semibold block">
                         RATE
                       </span>
-                      <span className="font-display text-lg sm:text-xl font-bold text-sage">
+                      <span className="font-display text-base sm:text-xl font-bold text-sage">
                         {pkg.priceRange}
                       </span>
                       <span className="text-[10px] text-ink/50 block font-medium">
@@ -396,7 +349,7 @@ export default function MenuSection() {
                   </div>
 
                   {/* Course Breakdown Items */}
-                  <div className="space-y-4 text-xs text-ink/85">
+                  <div className="space-y-3.5 text-xs text-ink/85">
                     
                     {/* Welcome Drinks & Salads */}
                     <div className="space-y-2 pb-3 border-b border-sand/60">
@@ -404,7 +357,7 @@ export default function MenuSection() {
                         <span className="flex items-center gap-1.5">
                           <span className="text-sage font-bold">◎</span> Welcome Drink
                           {pkg.welcomeNote && (
-                            <span className="text-[10px] text-ink/60 italic">({pkg.welcomeNote})</span>
+                            <span className="text-[10px] text-ink/60 italic hidden sm:inline">({pkg.welcomeNote})</span>
                           )}
                         </span>
                         <span className="font-mono text-ink/70 font-semibold">---- {pkg.welcomeDrinks}</span>
@@ -426,7 +379,7 @@ export default function MenuSection() {
                       </div>
 
                       {pkg.starters && (
-                        <div className="flex items-center justify-between pt-1">
+                        <div className="flex items-center justify-between pt-0.5">
                           <span className="flex items-center gap-1.5">
                             <span className="text-sage font-bold">◎</span> Starters
                             <span className="text-[10px] text-ink/60 italic">({pkg.starters.details})</span>
@@ -436,7 +389,7 @@ export default function MenuSection() {
                       )}
 
                       {pkg.soups && (
-                        <div className="flex items-center justify-between pt-1">
+                        <div className="flex items-center justify-between pt-0.5">
                           <span className="flex items-center gap-1.5">
                             <span className="text-sage font-bold">◎</span> Soups
                             <span className="text-[10px] text-ink/60 italic">({pkg.soups.details})</span>
@@ -448,7 +401,7 @@ export default function MenuSection() {
 
                     {/* First Course */}
                     <div className="space-y-2 pb-3 border-b border-sand/60">
-                      <span className="font-bold text-ink text-[11px] uppercase tracking-wider block text-sage">
+                      <span className="font-bold text-ink text-[10px] uppercase tracking-wider block text-sage">
                         First Course
                       </span>
                       <div className="flex items-center justify-between">
@@ -466,7 +419,7 @@ export default function MenuSection() {
                         </span>
                         <span className="font-mono text-ink/70 font-semibold">---- {pkg.firstCourse.nonVegItems}</span>
                       </div>
-                      <div className="text-ink/65 italic text-[11px] pt-0.5">
+                      <div className="text-ink/65 italic text-[10px] pt-0.5">
                         <span className="flex items-center gap-1.5">
                           <span className="text-sage font-bold">◎</span> {pkg.firstCourse.optionalNote}
                         </span>
@@ -475,7 +428,7 @@ export default function MenuSection() {
 
                     {/* Main Course */}
                     <div className="space-y-2 pb-3 border-b border-sand/60">
-                      <span className="font-bold text-ink text-[11px] uppercase tracking-wider block text-sage">
+                      <span className="font-bold text-ink text-[10px] uppercase tracking-wider block text-sage">
                         Main Course
                       </span>
                       <div className="flex items-start justify-between gap-2">
@@ -529,7 +482,7 @@ export default function MenuSection() {
 
                     {/* Live Counters Indicator */}
                     {pkg.liveCounters && (
-                      <div className="pt-2 flex items-center gap-2 text-xs font-semibold text-emerald-800 bg-emerald-50 px-3 py-2 rounded-xl border border-emerald-200">
+                      <div className="pt-1.5 flex items-center gap-2 text-[11px] font-semibold text-emerald-800 bg-emerald-50 px-3 py-1.5 rounded-xl border border-emerald-200">
                         <span>✨</span>
                         <span>{pkg.liveCounters}</span>
                       </div>
@@ -538,8 +491,8 @@ export default function MenuSection() {
                 </div>
 
                 {/* Bottom Footer & CTA */}
-                <div className="mt-6 pt-4 border-t border-sand flex items-center justify-between gap-4">
-                  <span className="text-[10px] text-ink/50 italic">
+                <div className="mt-5 pt-3 border-t border-sand flex items-center justify-between gap-3">
+                  <span className="text-[9px] text-ink/50 italic">
                     * Conditions Apply
                   </span>
 
@@ -547,7 +500,7 @@ export default function MenuSection() {
                     href={getWhatsAppLink(pkg.name, pkg.priceRange)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-6 py-2.5 rounded-xl bg-forest-deep text-linen hover:bg-sage hover:text-linen font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center gap-2 group hover:scale-105"
+                    className="px-5 py-2.5 rounded-xl bg-forest-deep text-linen hover:bg-sage hover:text-linen font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center gap-1.5 group hover:scale-105"
                   >
                     <span>TALK TO US</span>
                     <span className="group-hover:translate-x-0.5 transition-transform">→</span>
@@ -558,16 +511,59 @@ export default function MenuSection() {
           </AnimatePresence>
         </div>
 
+        {/* 3. Compact "WHAT MENU WOULD YOU PREFER?" Cuisine Selector Strip */}
+        <div className="mb-12 p-5 sm:p-8 rounded-3xl bg-white border border-sand-dark/40 shadow-xl text-center">
+          <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-ink/60 block mb-1">
+            WHAT MENU
+          </span>
+          <h3 className="font-display text-xl sm:text-3xl font-normal text-ink tracking-tight mb-3">
+            WOULD YOU PREFER?
+          </h3>
+
+          <p className="text-xs text-ink/60 font-light mb-4 max-w-lg mx-auto">
+            Tap your favorite cuisine styles to attach them to your WhatsApp menu inquiry:
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5 max-w-3xl mx-auto">
+            {(showAllCuisines ? cuisinesList : cuisinesList.slice(0, 10)).map((cuisine) => {
+              const isSelected = selectedCuisines.includes(cuisine);
+              return (
+                <button
+                  key={cuisine}
+                  onClick={() => toggleCuisine(cuisine)}
+                  className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[11px] sm:text-xs font-medium transition-all duration-200 border flex items-center gap-1.5 ${
+                    isSelected
+                      ? "bg-forest-deep text-linen border-forest-deep shadow-md scale-105"
+                      : "bg-sand/30 text-ink/80 border-sand-dark/30 hover:border-sage hover:bg-sand/60"
+                  }`}
+                >
+                  {isSelected && <span className="text-sage-light text-[9px]">✓</span>}
+                  <span>{cuisine}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="mt-4 flex items-center justify-center gap-3">
+            <button
+              onClick={() => setShowAllCuisines(!showAllCuisines)}
+              className="text-xs font-semibold text-sage hover:text-sage-deep transition-colors"
+            >
+              {showAllCuisines ? "Show less cuisines ↑" : `+ View all ${cuisinesList.length} cuisines ↓`}
+            </button>
+          </div>
+        </div>
+
         {/* 4. Download Menu Brochure CTA Strip */}
-        <div className="mb-16 p-6 rounded-3xl bg-sand/60 border border-sand-dark/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <div className="flex items-center gap-3.5">
-            <span className="text-3xl">📑</span>
+        <div className="mb-12 p-5 sm:p-6 rounded-3xl bg-sand/60 border border-sand-dark/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+          <div className="flex items-center gap-3">
+            <span className="text-2xl sm:text-3xl">📑</span>
             <div>
-              <p className="font-display text-base font-bold text-ink">
-                Want to browse our complete dish catalogue &amp; ingredient lists?
+              <p className="font-display text-sm sm:text-base font-bold text-ink">
+                Need the complete printable PDF menu?
               </p>
-              <p className="text-xs text-ink/70 font-light">
-                Receive the complete printable PDF menu in English &amp; Malayalam directly on WhatsApp.
+              <p className="text-[11px] sm:text-xs text-ink/70 font-light">
+                Receive the detailed dish catalogue in English &amp; Malayalam on WhatsApp.
               </p>
             </div>
           </div>
@@ -575,22 +571,22 @@ export default function MenuSection() {
             href="https://wa.me/919778368993?text=Hi%20Elite%20Group%20Catering%2C%20please%20send%20me%20your%20complete%20PDF%20Menu%20catalogue."
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-3 rounded-2xl bg-forest-deep text-linen hover:bg-sage text-xs font-bold transition-all shadow-md flex items-center gap-2 shrink-0 hover:scale-105"
+            className="w-full sm:w-auto px-5 py-2.5 rounded-2xl bg-forest-deep text-linen hover:bg-sage text-xs font-bold transition-all shadow-md flex items-center justify-center gap-2 shrink-0 hover:scale-105"
           >
             <WhatsAppIcon className="w-4 h-4 fill-current text-emerald-400" />
-            <span>Get PDF Menu on WhatsApp</span>
+            <span>Get PDF on WhatsApp</span>
           </a>
         </div>
 
         {/* 5. Artisanal Desserts & Live Counter Showcase Banner */}
-        <div className="rounded-3xl bg-forest-deep text-linen p-8 sm:p-12 relative overflow-hidden border border-sage-light/30 shadow-2xl">
+        <div className="rounded-3xl bg-forest-deep text-linen p-6 sm:p-12 relative overflow-hidden border border-sage-light/30 shadow-2xl">
           <div className="absolute top-0 right-0 w-96 h-96 bg-sage/20 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="relative z-10 max-w-4xl mx-auto text-center mb-10">
-            <span className="text-xs uppercase font-bold tracking-widest text-sage-light mb-2 block">
+          <div className="relative z-10 max-w-4xl mx-auto text-center mb-8 sm:mb-10">
+            <span className="text-[10px] sm:text-xs uppercase font-bold tracking-widest text-sage-light mb-2 block">
               ✦ Signature Confectionery &amp; Live Theatres
             </span>
-            <h3 className="font-display text-3xl sm:text-4xl text-linen mb-3 font-normal">
+            <h3 className="font-display text-2xl sm:text-4xl text-linen mb-2 sm:mb-3 font-normal">
               Handcrafted Artisanal Desserts
             </h3>
             <p className="text-xs sm:text-sm text-linen/80 max-w-2xl mx-auto font-light leading-relaxed">
@@ -599,27 +595,27 @@ export default function MenuSection() {
           </div>
 
           {/* Dessert Grid */}
-          <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+          <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 mb-6 sm:mb-8">
             {artisanalDesserts.map((dessert, idx) => (
               <div
                 key={idx}
-                className="p-4 rounded-2xl bg-linen/5 hover:bg-linen/10 border border-linen/10 transition-all flex items-start gap-3.5 group hover:scale-[1.02]"
+                className="p-3.5 sm:p-4 rounded-2xl bg-linen/5 hover:bg-linen/10 border border-linen/10 transition-all flex items-start gap-3 group hover:scale-[1.02]"
               >
-                <div className="w-10 h-10 rounded-xl bg-sage/20 text-sage-light flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-sage/20 text-sage-light flex items-center justify-center text-lg sm:text-xl shrink-0 group-hover:scale-110 transition-transform">
                   {dessert.icon}
                 </div>
                 <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <h4 className="text-sm font-semibold text-linen">{dessert.name}</h4>
+                  <div className="flex items-center gap-2 mb-0.5">
+                    <h4 className="text-xs sm:text-sm font-semibold text-linen">{dessert.name}</h4>
                   </div>
-                  <p className="text-[11px] text-linen/70 leading-snug">{dessert.desc}</p>
+                  <p className="text-[10px] sm:text-[11px] text-linen/70 leading-snug">{dessert.desc}</p>
                 </div>
               </div>
             ))}
           </div>
 
           {/* Quick Consultation Callout */}
-          <div className="relative z-10 text-center pt-4 border-t border-linen/10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="relative z-10 text-center pt-4 border-t border-linen/10 flex flex-col sm:flex-row items-center justify-center gap-3">
             <span className="text-xs text-linen/80">
               Need custom dietary arrangements or pure-veg sweet stations?
             </span>
@@ -627,7 +623,7 @@ export default function MenuSection() {
               href="https://wa.me/919778368993?text=Hi%20Elite%20Group%20Catering%2C%20I%20would%20like%20to%20customize%20our%20dessert%20and%20live%20counter%20menu."
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-full bg-sage hover:bg-sage-deep text-linen font-bold text-xs transition-all shadow-md border border-sage-light/30 flex items-center gap-1.5 hover:scale-105"
+              className="w-full sm:w-auto px-5 py-2.5 rounded-full bg-sage hover:bg-sage-deep text-linen font-bold text-xs transition-all shadow-md border border-sage-light/30 flex items-center justify-center gap-1.5 hover:scale-105"
             >
               <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
               <span>Customize Menu on WhatsApp →</span>

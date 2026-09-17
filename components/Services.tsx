@@ -11,35 +11,58 @@ export default function Services() {
   const currentService = services[activeIdx];
 
   return (
-    <section id="services" className="py-28 md:py-36 bg-forest-deep text-linen relative overflow-hidden">
+    <section id="services" className="py-20 md:py-36 bg-forest-deep text-linen relative overflow-hidden">
       {/* Background ambient lighting */}
       <div className="absolute top-1/4 -left-48 w-96 h-96 bg-sage/15 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-ink/40 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 relative z-10">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-linen/10 border border-sage-light/30 text-sage-light text-xs font-semibold uppercase tracking-widest mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-linen/10 border border-sage-light/30 text-sage-light text-[11px] sm:text-xs font-semibold uppercase tracking-widest mb-3 sm:mb-4">
             <span>✨ Complete Wedding &amp; Event Solutions</span>
           </div>
 
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-normal text-linen tracking-tight mb-3">
+          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-normal text-linen tracking-tight mb-2 sm:mb-3">
             WHAT WE OFFER
           </h2>
 
-          <p className="font-script text-3xl sm:text-5xl text-sage-light mb-4 font-normal">
+          <p className="font-script text-2xl sm:text-4xl md:text-5xl text-sage-light mb-3 sm:mb-4 font-normal">
             Bespoke Celebration Artistry
           </p>
 
-          <p className="text-sm sm:text-base text-linen/75 leading-relaxed font-light text-balance">
+          <p className="text-xs sm:text-base text-linen/75 leading-relaxed font-light text-balance max-w-xl mx-auto">
             From regal stage architecture and chauffeured luxury bridal cars to cinematic 4K photography and turnkey event coordination across Kerala.
           </p>
         </div>
 
-        {/* Interactive Split Grid */}
+        {/* Mobile-First Tab Switcher Bar (Horizontal scroll on mobile, vertical list on desktop) */}
+        <div className="lg:hidden flex items-center gap-2 overflow-x-auto pb-4 mb-6 no-scrollbar select-none">
+          {services.map((s, idx) => {
+            const active = activeIdx === idx;
+            return (
+              <button
+                key={s.id}
+                onClick={() => setActiveIdx(idx)}
+                className={`px-4 py-2.5 rounded-2xl text-xs font-semibold whitespace-nowrap transition-all shrink-0 border flex items-center gap-2 ${
+                  active
+                    ? "bg-sage text-linen border-sage-light shadow-lg font-bold"
+                    : "bg-linen/5 text-linen/75 border-linen/10 hover:bg-linen/10"
+                }`}
+              >
+                <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded ${active ? "bg-forest-deep text-linen" : "bg-linen/10 text-linen/60"}`}>
+                  0{idx + 1}
+                </span>
+                <span>{s.title.split("&")[0].trim()}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Split Grid for Desktop & Unified Card on Mobile */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          {/* Left Column: Numbered Service Switchers */}
-          <div className="lg:col-span-5 flex flex-col gap-3">
+          {/* Desktop Left Column: Numbered Vertical Service Switchers */}
+          <div className="hidden lg:flex lg:col-span-5 flex-col gap-3">
             {services.map((s, idx) => {
               const active = activeIdx === idx;
               return (
@@ -87,7 +110,7 @@ export default function Services() {
             })}
           </div>
 
-          {/* Right Column: Featured Showcase Card */}
+          {/* Right Column / Mobile Active Card Showcase */}
           <div className="lg:col-span-7">
             <AnimatePresence mode="wait">
               <motion.div
@@ -95,12 +118,12 @@ export default function Services() {
                 initial={{ opacity: 0, y: 15, scale: 0.98 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -15, scale: 0.98 }}
-                transition={{ duration: 0.4 }}
-                className="h-full rounded-3xl bg-linen/5 border border-sage/40 p-6 sm:p-8 flex flex-col justify-between backdrop-blur-xl relative overflow-hidden shadow-2xl"
+                transition={{ duration: 0.3 }}
+                className="rounded-3xl bg-linen/5 border border-sage/40 p-5 sm:p-8 flex flex-col justify-between backdrop-blur-xl relative overflow-hidden shadow-2xl"
               >
                 <div>
                   {/* Photo Banner */}
-                  <div className="relative h-64 sm:h-72 rounded-2xl overflow-hidden mb-6 border border-linen/15 group">
+                  <div className="relative h-56 sm:h-72 rounded-2xl overflow-hidden mb-5 border border-linen/15 group">
                     <Image
                       src={currentService.image}
                       alt={currentService.title}
@@ -109,16 +132,16 @@ export default function Services() {
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                       priority
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
 
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3.5 py-1.5 rounded-full bg-forest-deep/85 backdrop-blur-md border border-sage-light/40 text-sage-light text-xs font-semibold uppercase tracking-wider shadow-lg">
+                    <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
+                      <span className="px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-forest-deep/90 backdrop-blur-md border border-sage-light/40 text-sage-light text-[10px] sm:text-xs font-semibold uppercase tracking-wider shadow-lg">
                         ✨ {currentService.specialty}
                       </span>
                     </div>
 
-                    <div className="absolute bottom-4 left-4 right-4 text-linen">
-                      <h3 className="font-display text-xl sm:text-2xl font-bold mb-1">
+                    <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 text-linen">
+                      <h3 className="font-display text-lg sm:text-2xl font-bold mb-1">
                         {currentService.title}
                       </h3>
                       <p className="text-xs text-linen/80 font-light line-clamp-1">
@@ -128,15 +151,15 @@ export default function Services() {
                   </div>
 
                   {/* Detailed Description */}
-                  <p className="text-sm text-linen/85 leading-relaxed font-light mb-6">
+                  <p className="text-xs sm:text-sm text-linen/85 leading-relaxed font-light mb-5">
                     {currentService.description}
                   </p>
 
                   {/* Feature Bullets */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 mb-6">
                     {currentService.features.map((feature) => (
                       <div key={feature} className="flex items-center gap-2 text-xs sm:text-sm text-linen/90">
-                        <span className="w-4 h-4 rounded-full bg-sage/30 text-sage-light flex items-center justify-center text-xs shrink-0 font-bold">
+                        <span className="w-4 h-4 rounded-full bg-sage/30 text-sage-light flex items-center justify-center text-[10px] sm:text-xs shrink-0 font-bold">
                           ✓
                         </span>
                         <span className="font-light">{feature}</span>
@@ -146,9 +169,9 @@ export default function Services() {
                 </div>
 
                 {/* Bottom WhatsApp CTA Bar */}
-                <div className="pt-5 border-t border-linen/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-                  <span className="text-xs text-linen/60 text-center sm:text-left font-light">
-                    Customized according to your venue, timeline &amp; wedding theme.
+                <div className="pt-4 border-t border-linen/10 flex flex-col sm:flex-row items-center justify-between gap-3">
+                  <span className="text-[11px] sm:text-xs text-linen/60 text-center sm:text-left font-light">
+                    Customized according to your venue &amp; theme.
                   </span>
                   <a
                     href={`https://wa.me/919778368993?text=${encodeURIComponent(
@@ -156,7 +179,7 @@ export default function Services() {
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-sage text-linen font-bold text-xs sm:text-sm hover:bg-sage-deep hover:scale-[1.02] shadow-lg transition-all"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-sage text-linen font-bold text-xs sm:text-sm hover:bg-sage-deep hover:scale-[1.02] shadow-lg transition-all"
                   >
                     <WhatsAppIcon className="w-4 h-4 fill-current shrink-0" />
                     <span>Inquire About This Service</span>
