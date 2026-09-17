@@ -14,36 +14,52 @@ export default function DateChecker() {
   };
 
   return (
-    <section id="availability" className="relative py-20 px-6 md:px-10 bg-forest-deep text-linen">
+    <section id="availability" className="relative py-24 md:py-32 px-6 md:px-10 bg-forest-deep text-linen">
       <div className="max-w-5xl mx-auto">
-        <div className="grid lg:grid-cols-12 gap-8 items-center">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          {/* Left Column Narrative */}
           <div className="lg:col-span-6 space-y-4">
-            <span className="text-[10px] tracking-widest2 uppercase text-sage-light font-semibold block">
-              Reserve Your Date
-            </span>
-            <h2 className="font-display text-3xl md:text-4xl text-linen leading-tight">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sage/20 border border-sage/40 text-sage-light text-[11px] font-semibold uppercase tracking-wider">
+              <span>🔒 Executive Chef Availability</span>
+            </div>
+
+            <h2 className="font-display text-3xl sm:text-4xl text-linen leading-tight">
               Check calendar availability for your celebration.
             </h2>
-            <p className="text-xs md:text-sm text-linen/70 font-light leading-relaxed">
-              We cater a limited number of events per date to guarantee executive chef oversight and white-glove service standards.
+
+            <p className="text-xs sm:text-sm text-linen/75 font-light leading-relaxed">
+              To guarantee master chef oversight, pristine table presentations, and seamless butler service, we limit bookings to a maximum of 2 major wedding banquets per calendar date.
             </p>
-            <div className="flex items-center gap-4 text-xs text-sage-light pt-2">
-              <span>✓ Mobile Kitchen Fleet</span>
-              <span>✓ Separate Veg Sadya Setup</span>
+
+            <div className="p-4 rounded-2xl bg-linen/5 border border-linen/10 space-y-2 text-xs text-linen/85">
+              <div className="flex items-center gap-2 text-sage-light font-medium">
+                <span>✓</span>
+                <span>Mobile Refrigerated Food Trucks across all 14 Kerala districts</span>
+              </div>
+              <div className="flex items-center gap-2 text-sage-light font-medium">
+                <span>✓</span>
+                <span>Separate pure-veg copper vessels for Sadya feasts</span>
+              </div>
+              <div className="flex items-center gap-2 text-sage-light font-medium">
+                <span>✓</span>
+                <span>Complimentary private tasting for confirmed bookings</span>
+              </div>
             </div>
           </div>
 
-          <div className="lg:col-span-6 bg-forest/40 p-6 sm:p-8 rounded-2xl border border-sage-light/20 backdrop-blur-md">
+          {/* Right Column Interactive Checker Form */}
+          <div className="lg:col-span-6 bg-forest/50 p-6 sm:p-8 rounded-3xl border border-sage-light/25 backdrop-blur-xl shadow-2xl">
             <div className="space-y-4">
               <div>
                 <label className="block text-xs uppercase tracking-wider text-sage-light mb-1.5 font-medium">
-                  Event Date
+                  Proposed Event Date
                 </label>
                 <input
                   type="date"
                   value={selectedDate}
                   onChange={(e) => setSelectedDate(e.target.value)}
-                  className="w-full bg-forest-deep border border-sage-light/30 rounded-xl px-4 py-3 text-sm text-linen focus:outline-none focus:border-sage"
+                  className="w-full bg-forest-deep border border-sage-light/30 rounded-xl px-4 py-3 text-sm text-linen focus:outline-none focus:border-sage transition-colors"
                 />
               </div>
 
@@ -55,7 +71,7 @@ export default function DateChecker() {
                   <select
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
-                    className="w-full bg-forest-deep border border-sage-light/30 rounded-xl px-3 py-3 text-xs text-linen focus:outline-none focus:border-sage"
+                    className="w-full bg-forest-deep border border-sage-light/30 rounded-xl px-3 py-3 text-xs text-linen focus:outline-none focus:border-sage transition-colors"
                   >
                     <option value="Kottayam">Kottayam</option>
                     <option value="Kochi / Ernakulam">Kochi / Ernakulam</option>
@@ -69,12 +85,12 @@ export default function DateChecker() {
 
                 <div>
                   <label className="block text-xs uppercase tracking-wider text-sage-light mb-1.5 font-medium">
-                    Guests
+                    Guest Count
                   </label>
                   <select
                     value={guestCount}
                     onChange={(e) => setGuestCount(e.target.value)}
-                    className="w-full bg-forest-deep border border-sage-light/30 rounded-xl px-3 py-3 text-xs text-linen focus:outline-none focus:border-sage"
+                    className="w-full bg-forest-deep border border-sage-light/30 rounded-xl px-3 py-3 text-xs text-linen focus:outline-none focus:border-sage transition-colors"
                   >
                     <option value="Under 150">Under 150</option>
                     <option value="150 - 300">150 - 300</option>
@@ -90,14 +106,15 @@ export default function DateChecker() {
                   href={checkAvailabilityWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 py-3.5 px-6 bg-sage text-linen font-medium rounded-xl hover:bg-sage-deep transition-all shadow-md text-xs sm:text-sm"
+                  className="w-full flex items-center justify-center gap-2.5 py-3.5 px-6 bg-sage hover:bg-sage-deep text-linen font-bold rounded-xl transition-all shadow-lg text-xs sm:text-sm hover:scale-[1.02] border border-sage-light/30"
                 >
                   <WhatsAppIcon className="w-4 h-4 fill-current shrink-0" />
-                  <span>Check Date Availability on WhatsApp</span>
+                  <span>Check Availability on WhatsApp →</span>
                 </a>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>

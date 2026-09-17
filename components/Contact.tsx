@@ -137,8 +137,11 @@ export default function Contact() {
                 <div className="flex items-start gap-3">
                   <span className="text-base text-sage shrink-0">🕒</span>
                   <div>
-                    <strong className="font-semibold text-ink block">Hours:</strong>
-                    <span className="text-emerald-700 font-semibold">Open 24 hours</span> · Monday to Sunday
+                    <strong className="font-semibold text-ink block">Hours &amp; Status:</strong>
+                    <span className="inline-flex items-center gap-1.5 text-emerald-700 font-semibold">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                      Open 24 hours · Central Kitchen Active Now
+                    </span>
                   </div>
                 </div>
 
@@ -156,9 +159,15 @@ export default function Contact() {
 
             {/* Card Bottom Direct Navigation Trigger */}
             <div className="p-4 bg-sand/40 border-t border-sand flex items-center justify-between">
-              <span className="text-[11px] text-ink/60">
-                Planning an event?
-              </span>
+              <a
+                href="https://wa.me/919778368993?text=Hi%20Elite%20Group%2C%20please%20send%20me%20your%20Google%20Maps%20location%20pin."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-semibold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5"
+              >
+                <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
+                <span>Send Pin to WhatsApp</span>
+              </a>
               <a
                 href={brand.directionsUrl}
                 target="_blank"

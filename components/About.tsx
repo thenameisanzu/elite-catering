@@ -2,42 +2,55 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import WhatsAppIcon from "./WhatsAppIcon";
+
+const stats = [
+  { value: "10+", label: "Years of Culinary Legacy", sub: "Since 2015 in Kottayam" },
+  { value: "500+", label: "Grand Wedding Feasts", sub: "Served across Kerala" },
+  { value: "202+", label: "5-Star Google Reviews", sub: "4.9 ★ Verified Rating" },
+  { value: "100%", label: "Pure-Veg Sadya Vessels", sub: "Dedicated Kitchen Setup" },
+];
 
 export default function About() {
   return (
     <section id="about" className="relative py-28 md:py-36 px-6 md:px-10 bg-linen overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Top Split Section */}
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-24">
-          {/* Left: Real Stock Image with Quote Overlay & Verified Badge */}
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-20">
+          
+          {/* Left: Real Stock Image with Double-Border Luxury Framing & Verified Badge */}
           <div className="lg:col-span-6 relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-sand bg-forest-deep aspect-[4/5] sm:aspect-[5/4] lg:aspect-[4/5] group">
-              <Image
-                src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1600&auto=format&fit=crop"
-                alt="Elite Group Culinary Craftsmanship"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 text-linen">
-                <p className="font-script text-3xl sm:text-4xl text-sage-light mb-1 leading-snug">
-                  “A wedding feast is not an event, it is an emotion.”
-                </p>
-                <p className="text-[11px] tracking-widest2 text-linen/70 uppercase font-semibold">
-                  — The Elite Group Principle
-                </p>
+            <div className="relative p-2 rounded-3xl bg-sand/80 border border-sage/30 shadow-2xl">
+              <div className="relative rounded-2xl overflow-hidden bg-forest-deep aspect-[4/5] sm:aspect-[5/4] lg:aspect-[4/5] group border border-sand">
+                <Image
+                  src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1600&auto=format&fit=crop"
+                  alt="Elite Group Culinary Craftsmanship"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+                
+                {/* Overlay Quote */}
+                <div className="absolute bottom-6 left-6 right-6 text-linen">
+                  <p className="font-script text-3xl sm:text-4xl text-sage-light mb-1 leading-snug">
+                    “A wedding feast is not an event, it is an emotion.”
+                  </p>
+                  <p className="text-[11px] tracking-widest2 text-linen/70 uppercase font-semibold">
+                    — The Elite Group Principle
+                  </p>
+                </div>
               </div>
             </div>
 
             {/* Verified Excellence Emblem Card */}
-            <div className="absolute -bottom-6 -right-4 sm:bottom-6 sm:-right-8 bg-forest-deep text-linen p-5 rounded-2xl shadow-2xl border border-sage/40 max-w-[240px] flex items-center gap-3.5 backdrop-blur-md">
-              <div className="relative w-12 h-12 rounded-full overflow-hidden border border-sage bg-white shrink-0 p-0.5 shadow-md flex items-center justify-center">
+            <div className="absolute -bottom-6 -right-4 sm:bottom-6 sm:-right-8 bg-forest-deep text-linen p-4 sm:p-5 rounded-2xl shadow-2xl border border-sage/40 max-w-[240px] flex items-center gap-3.5 backdrop-blur-md">
+              <div className="relative w-11 h-11 rounded-full overflow-hidden border border-sage bg-white shrink-0 p-0.5 shadow-md flex items-center justify-center">
                 <Image
                   src="/images/logo.png"
                   alt="Elite Group Emblem"
-                  width={48}
-                  height={48}
+                  width={44}
+                  height={44}
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -93,24 +106,42 @@ export default function About() {
 
             <div className="pt-4 flex flex-wrap items-center gap-4">
               <a
-                href="#stories"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-sage text-linen text-xs sm:text-sm font-semibold hover:bg-sage-deep transition-all shadow-md"
+                href="#menu"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-sage text-linen text-xs sm:text-sm font-semibold hover:bg-sage-deep transition-all shadow-md hover:scale-[1.02]"
               >
-                Explore Masterpieces
+                Explore Food Packages →
               </a>
               <a
                 href="https://wa.me/919778368993?text=Hi%20Elite%20Group%2C%20I%20would%20like%20to%20discuss%20our%20upcoming%20event%20catering."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-sage text-sage text-xs sm:text-sm font-semibold hover:bg-sage/10 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-sage text-sage text-xs sm:text-sm font-semibold hover:bg-sage/10 transition-colors"
               >
-                Speak with Executive Chef
+                <WhatsAppIcon className="w-4 h-4 fill-current" />
+                <span>Speak with Executive Chef</span>
               </a>
             </div>
           </div>
         </div>
 
-        {/* 4 Value Pillars Grid (Inspired by St. Antony's) */}
+        {/* Dynamic Animated Statistics Bar */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-20 p-6 sm:p-8 rounded-3xl bg-forest-deep text-linen border border-sage-light/25 shadow-xl">
+          {stats.map((stat, sIdx) => (
+            <div key={sIdx} className="text-center p-3 border-r last:border-r-0 border-linen/10">
+              <p className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-sage-light mb-1">
+                {stat.value}
+              </p>
+              <p className="text-xs sm:text-sm font-semibold text-linen mb-0.5">
+                {stat.label}
+              </p>
+              <p className="text-[11px] text-linen/60 font-light">
+                {stat.sub}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* 4 Value Pillars Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             {

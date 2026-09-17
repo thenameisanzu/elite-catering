@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import WhatsAppIcon from "./WhatsAppIcon";
 
 interface MenuPackage {
@@ -112,6 +113,8 @@ const artisanalDesserts = [
 ];
 
 export default function MenuSection() {
+  const [activeDietary, setActiveDietary] = useState("all");
+
   const getWhatsAppLink = (packageName: string, price: string) => {
     const text = `Hi Elite Group Catering! 👋\n\nI am interested in your *${packageName}* (${price}).\nCould you please share the detailed dish options and discuss availability for our upcoming event?`;
     return `https://wa.me/919778368993?text=${encodeURIComponent(text)}`;
@@ -122,7 +125,7 @@ export default function MenuSection() {
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sage/15 border border-sage/30 text-sage text-xs font-semibold uppercase tracking-widest mb-4">
             <span>🍽️ Curated Culinary Packages</span>
           </div>
@@ -135,9 +138,31 @@ export default function MenuSection() {
             Welcome to a feast of flavors!
           </p>
 
-          <p className="text-sm sm:text-base text-ink/75 leading-relaxed font-light text-balance">
+          <p className="text-sm sm:text-base text-ink/75 leading-relaxed font-light text-balance mb-8">
             A great meal is more than just food, it&apos;s an experience. At Elite Group, we bring you a menu designed to suit every occasion. Whether you prefer something Standard, a Classy touch, an Elegant affair, an Executive selection, or a Grand spread — your perfect feast starts here.
           </p>
+
+          {/* Quick Dietary Preference Indicator Pills */}
+          <div className="flex flex-wrap items-center justify-center gap-2 select-none">
+            {[
+              { id: "all", label: "🌟 All Packages" },
+              { id: "veg", label: "🌱 Pure Veg Sadya Vessels" },
+              { id: "nonveg", label: "🍗 Syrian & Malabar Non-Veg" },
+              { id: "live", label: "🔥 Live Counters & Tawas" },
+            ].map((d) => (
+              <button
+                key={d.id}
+                onClick={() => setActiveDietary(d.id)}
+                className={`px-4 py-2 rounded-full text-xs font-semibold transition-all border ${
+                  activeDietary === d.id
+                    ? "bg-forest-deep text-linen border-forest-deep shadow-md"
+                    : "bg-white text-ink/80 border-sand-dark/40 hover:border-sage hover:bg-sand/30"
+                }`}
+              >
+                {d.label}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Menu Cards Grid */}
@@ -153,8 +178,9 @@ export default function MenuSection() {
             >
               {/* Most Popular Badge */}
               {pkg.badge && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-forest-deep text-sage-light text-[11px] font-bold tracking-wider uppercase shadow-md border border-sage/30">
-                  {pkg.badge}
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-forest-deep text-sage-light text-[11px] font-bold tracking-wider uppercase shadow-md border border-sage/30 flex items-center gap-1.5">
+                  <span>✨</span>
+                  <span>{pkg.badge}</span>
                 </div>
               )}
 
@@ -296,6 +322,30 @@ export default function MenuSection() {
           ))}
         </div>
 
+        {/* Download Menu Brochure CTA Strip */}
+        <div className="mb-16 p-6 rounded-2xl bg-sand/60 border border-sand-dark/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+          <div className="flex items-center gap-3.5">
+            <span className="text-2xl">📑</span>
+            <div>
+              <p className="font-display text-base font-bold text-ink">
+                Want to browse our complete dish catalogue &amp; ingredient lists?
+              </p>
+              <p className="text-xs text-ink/70 font-light">
+                Receive the complete printable PDF menu in English &amp; Malayalam directly on WhatsApp.
+              </p>
+            </div>
+          </div>
+          <a
+            href="https://wa.me/919778368993?text=Hi%20Elite%20Group%20Catering%2C%20please%20send%20me%20your%20complete%20PDF%20Menu%20catalogue."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2.5 rounded-xl bg-forest-deep text-linen hover:bg-sage text-xs font-bold transition-all shadow-md flex items-center gap-2 shrink-0"
+          >
+            <WhatsAppIcon className="w-4 h-4 fill-current" />
+            <span>Get PDF Menu on WhatsApp</span>
+          </a>
+        </div>
+
         {/* Artisanal Desserts & Live Counter Showcase Banner */}
         <div className="rounded-3xl bg-forest-deep text-linen p-8 sm:p-12 relative overflow-hidden border border-sage-light/30 shadow-2xl">
           {/* Subtle background glow */}
@@ -318,7 +368,7 @@ export default function MenuSection() {
             {artisanalDesserts.map((dessert, idx) => (
               <div
                 key={idx}
-                className="p-4 rounded-2xl bg-linen/5 hover:bg-linen/10 border border-linen/10 transition-all flex items-start gap-3.5 group"
+                className="p-4 rounded-2xl bg-linen/5 hover:bg-linen/10 border border-linen/10 transition-all flex items-start gap-3.5 group hover:scale-[1.02]"
               >
                 <div className="w-10 h-10 rounded-xl bg-sage/20 text-sage-light flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
                   {dessert.icon}

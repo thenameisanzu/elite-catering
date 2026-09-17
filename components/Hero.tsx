@@ -31,16 +31,16 @@ export default function Hero() {
           playsInline
           preload="auto"
           poster="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1920&auto=format&fit=crop"
-          className="w-full h-full object-cover filter brightness-[0.55] contrast-[1.15] scale-105"
+          className="w-full h-full object-cover filter brightness-[0.5] contrast-[1.15] scale-105"
         >
           <source src="/videos/hero-video.mov" type="video/quicktime" />
           <source src="/videos/hero-video.mov" type="video/mp4" />
           <source src="/videos/videoplayback%20(1).mov" type="video/mp4" />
         </video>
 
-        {/* Cinematic Multi-Tone Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-forest-deep via-forest-deep/60 to-forest-deep/50" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sage/20 via-transparent to-transparent opacity-80" />
+        {/* Multi-Tone Gradient Overlays with Ambient Glow */}
+        <div className="absolute inset-0 bg-gradient-to-t from-forest-deep via-forest-deep/65 to-forest-deep/55" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sage/25 via-forest-deep/40 to-forest-deep/90 opacity-90" />
       </div>
 
       {/* 2. Centered Monumental Hero Stage */}
@@ -51,7 +51,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-forest-deep/85 backdrop-blur-xl border border-sage-light/35 shadow-xl mb-6"
+          className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-forest-deep/90 backdrop-blur-xl border border-sage-light/35 shadow-xl mb-6"
         >
           <div className="relative w-5 h-5 rounded-full overflow-hidden border border-sage bg-white flex items-center justify-center shrink-0">
             <Image src="/images/logo.png" alt="Elite Group Logo" width={20} height={20} className="object-contain" />
@@ -69,9 +69,9 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.15 }}
           className="mb-6 max-w-4xl"
         >
-          <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-linen tracking-tight leading-[1.08] text-balance">
+          <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-linen tracking-tight leading-[1.1] text-balance">
             Where Royal Flavors Create <br />
-            <span className="font-script text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-sage-light font-normal inline-block drop-shadow-[0_4px_30px_rgba(175,200,173,0.5)] mt-1">
+            <span className="font-script text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-sage-light font-normal inline-block drop-shadow-[0_4px_30px_rgba(175,200,173,0.5)] mt-2 pb-1">
               Unforgettable Feasts
             </span>
           </h1>
@@ -99,9 +99,9 @@ export default function Hero() {
             href="https://wa.me/919778368993?text=Hi%20Elite%20Group%20Catering%2C%20I%20would%20like%20to%20inquire%20about%20catering%20and%20schedule%20a%20menu%20tasting."
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-sage hover:bg-sage-deep text-linen transition-all flex items-center justify-center gap-3 shadow-[0_4px_20px_rgba(136,171,142,0.4)] group font-bold border border-sage-light/40"
+            className="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-sage hover:bg-sage-deep text-linen transition-all flex items-center justify-center gap-3 shadow-[0_4px_25px_rgba(136,171,142,0.4)] group font-bold border border-sage-light/40 hover:scale-[1.02]"
           >
-            <WhatsAppIcon className="w-5 h-5 text-emerald-400 fill-current shrink-0" />
+            <WhatsAppIcon className="w-5 h-5 text-emerald-400 fill-current shrink-0 group-hover:scale-110 transition-transform" />
             <span className="text-sm font-semibold tracking-wide">Inquire on WhatsApp</span>
             <span className="text-xs px-2 py-0.5 rounded-full bg-forest-deep/40 text-linen font-mono">
               Online
@@ -111,16 +111,16 @@ export default function Hero() {
           {/* Check Date Availability */}
           <a
             href="#availability"
-            className="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-linen/10 hover:bg-linen/20 border border-linen/20 backdrop-blur-xl text-linen transition-all flex items-center justify-center gap-2 text-sm font-semibold group"
+            className="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-linen/10 hover:bg-linen/20 border border-linen/20 backdrop-blur-xl text-linen transition-all flex items-center justify-center gap-2 text-sm font-semibold group hover:scale-[1.02]"
           >
             <span>📅 Check Availability</span>
             <span className="group-hover:translate-x-1 transition-transform">→</span>
           </a>
 
-          {/* Direct Phone Dial without raw number on button */}
+          {/* Direct Phone Dial */}
           <a
             href="tel:+919778368993"
-            className="w-full sm:w-auto px-5 py-3.5 rounded-2xl bg-forest-deep/80 hover:bg-forest-deep border border-sage-light/30 backdrop-blur-xl text-linen/90 transition-all flex items-center justify-center gap-2 text-xs font-semibold"
+            className="w-full sm:w-auto px-5 py-3.5 rounded-2xl bg-forest-deep/80 hover:bg-forest-deep border border-sage-light/30 backdrop-blur-xl text-linen/90 transition-all flex items-center justify-center gap-2 text-xs font-semibold hover:scale-[1.02]"
             title="Call Elite Group"
           >
             <span>📞</span>
@@ -144,13 +144,13 @@ export default function Hero() {
           <div className="flex items-center gap-2">
             <span className="text-sage-light font-bold">⭐</span>
             <span className="font-semibold text-linen">4.9 / 5.0 Rating</span>
-            <span>Google &amp; Socials</span>
+            <span>Google Reviews</span>
           </div>
           <span className="w-1 h-1 rounded-full bg-linen/30 hidden sm:block" />
           <div className="flex items-center gap-2">
             <span className="text-sage-light font-bold">🌱</span>
             <span className="font-semibold text-linen">100% Pure-Veg</span>
-            <span>Separate Kitchen</span>
+            <span>Dedicated Vessels</span>
           </div>
         </motion.div>
       </div>
