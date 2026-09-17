@@ -1,5 +1,7 @@
 "use client";
 
+import WhatsAppIcon from "./WhatsAppIcon";
+
 interface MenuPackage {
   id: string;
   name: string;
@@ -340,9 +342,10 @@ export default function MenuSection() {
               href="https://wa.me/919778368993?text=Hi%20Elite%20Group%20Catering%2C%20I%20would%20like%20to%20customize%20our%20dessert%20and%20live%20counter%20menu."
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2 rounded-full bg-sage hover:bg-sage-deep text-linen font-bold text-xs transition-all shadow-md border border-sage-light/30"
+              className="px-5 py-2 rounded-full bg-sage hover:bg-sage-deep text-linen font-bold text-xs transition-all shadow-md border border-sage-light/30 flex items-center gap-1.5"
             >
-              Customize Menu on WhatsApp →
+              <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
+              <span>Customize Menu on WhatsApp →</span>
             </a>
           </div>
         </div>

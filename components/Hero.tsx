@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import WhatsAppIcon from "./WhatsAppIcon";
 
 const marqueeDishes = [
   "🍌 ROYAL 26-COURSE HERITAGE SADYA",
@@ -17,28 +17,6 @@ const marqueeDishes = [
 ];
 
 export default function Hero() {
-  const [isMuted, setIsMuted] = useState(true);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
-  };
-
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
-
   return (
     <section
       id="top"
@@ -47,10 +25,9 @@ export default function Hero() {
       {/* 1. Cinematic Full-Screen Video Canvas */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <video
-          ref={videoRef}
           autoPlay
           loop
-          muted={isMuted}
+          muted
           playsInline
           preload="auto"
           poster="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1920&auto=format&fit=crop"
@@ -66,25 +43,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sage/20 via-transparent to-transparent opacity-80" />
       </div>
 
-      {/* 2. Interactive Video Audio & Playback Controls Floating Widget */}
-      <div className="absolute top-28 right-6 md:right-10 z-20 flex items-center gap-2">
-        <button
-          onClick={toggleMute}
-          title={isMuted ? "Unmute Video Sound" : "Mute Video"}
-          className="px-3 py-1.5 rounded-full bg-forest-deep/75 backdrop-blur-xl border border-sage-light/30 text-xs font-semibold text-linen/90 hover:bg-forest-deep hover:text-sage-light transition-all flex items-center gap-2 shadow-lg"
-        >
-          <span>{isMuted ? "🔇 Sound Off" : "🔊 Sound On"}</span>
-        </button>
-        <button
-          onClick={togglePlay}
-          title={isPlaying ? "Pause Video" : "Play Video"}
-          className="w-8 h-8 rounded-full bg-forest-deep/75 backdrop-blur-xl border border-sage-light/30 text-xs text-linen/90 hover:bg-forest-deep hover:text-sage-light transition-all flex items-center justify-center shadow-lg"
-        >
-          <span>{isPlaying ? "⏸" : "▶"}</span>
-        </button>
-      </div>
-
-      {/* 3. Centered Monumental Hero Stage */}
+      {/* 2. Centered Monumental Hero Stage */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-10 w-full flex-1 flex flex-col items-center justify-center text-center my-auto">
         
         {/* Verified Brand Eyebrow Badge */}
@@ -142,7 +101,7 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-sage hover:bg-sage-deep text-linen transition-all flex items-center justify-center gap-3 shadow-[0_4px_20px_rgba(136,171,142,0.4)] group font-bold border border-sage-light/40"
           >
-            <span className="text-xl">💬</span>
+            <WhatsAppIcon className="w-5 h-5 text-emerald-400 fill-current shrink-0" />
             <span className="text-sm font-semibold tracking-wide">Inquire on WhatsApp</span>
             <span className="text-xs px-2 py-0.5 rounded-full bg-forest-deep/40 text-linen font-mono">
               Online
@@ -158,14 +117,14 @@ export default function Hero() {
             <span className="group-hover:translate-x-1 transition-transform">→</span>
           </a>
 
-          {/* Direct Phone Dial */}
+          {/* Direct Phone Dial without raw number on button */}
           <a
             href="tel:+919778368993"
             className="w-full sm:w-auto px-5 py-3.5 rounded-2xl bg-forest-deep/80 hover:bg-forest-deep border border-sage-light/30 backdrop-blur-xl text-linen/90 transition-all flex items-center justify-center gap-2 text-xs font-semibold"
             title="Call Elite Group"
           >
             <span>📞</span>
-            <span>+91 97783 68993</span>
+            <span>Call Us</span>
           </a>
         </motion.div>
 
@@ -196,7 +155,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* 4. Bottom Continuous Marquee Culinary Ribbon Strip */}
+      {/* 3. Bottom Continuous Marquee Culinary Ribbon Strip */}
       <div className="relative z-10 w-full bg-forest-deep/95 backdrop-blur-md border-t border-sage-light/20 py-2.5 overflow-hidden select-none mt-6">
         <motion.div
           animate={{ x: [0, -1000] }}

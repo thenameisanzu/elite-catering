@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { services } from "@/lib/content";
+import WhatsAppIcon from "./WhatsAppIcon";
 
 export default function Services() {
   const [activeIdx, setActiveIdx] = useState(0);
@@ -157,7 +158,8 @@ export default function Services() {
                     rel="noopener noreferrer"
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-sage text-linen font-bold text-xs sm:text-sm hover:bg-sage-deep hover:scale-[1.02] shadow-lg transition-all"
                   >
-                    <span>💬 Inquire About This Service</span>
+                    <WhatsAppIcon className="w-4 h-4 fill-current shrink-0" />
+                    <span>Inquire About This Service</span>
                   </a>
                 </div>
               </motion.div>

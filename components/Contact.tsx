@@ -1,6 +1,7 @@
 "use client";
 
 import { brand } from "@/lib/content";
+import WhatsAppIcon from "./WhatsAppIcon";
 
 export default function Contact() {
   return (
@@ -118,7 +119,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   className="p-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 flex flex-col items-center justify-center gap-1 transition-all text-center group"
                 >
-                  <span className="text-base group-hover:scale-110 transition-transform">💬</span>
+                  <WhatsAppIcon className="w-5 h-5 text-emerald-600 fill-current group-hover:scale-110 transition-transform" />
                   <span className="text-[10px] font-semibold text-emerald-800">WhatsApp</span>
                 </a>
               </div>

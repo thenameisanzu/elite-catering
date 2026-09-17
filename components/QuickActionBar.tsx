@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { brand } from "@/lib/content";
+import WhatsAppIcon from "./WhatsAppIcon";
 
 export default function QuickActionBar() {
   return (
@@ -37,7 +38,7 @@ export default function QuickActionBar() {
           rel="noopener noreferrer"
           className="flex items-center gap-1.5 text-xs font-semibold py-1.5 px-4 rounded-full bg-sage text-linen shadow-md"
         >
-          <span>💬</span>
+          <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
           <span>WhatsApp</span>
         </a>
       </div>

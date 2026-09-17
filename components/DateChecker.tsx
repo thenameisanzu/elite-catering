@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import WhatsAppIcon from "./WhatsAppIcon";
 
 export default function DateChecker() {
   const [selectedDate, setSelectedDate] = useState("");
@@ -91,7 +92,8 @@ export default function DateChecker() {
                   rel="noopener noreferrer"
                   className="w-full flex items-center justify-center gap-2 py-3.5 px-6 bg-sage text-linen font-medium rounded-xl hover:bg-sage-deep transition-all shadow-md text-xs sm:text-sm"
                 >
-                  <span>📅 Check Date Availability on WhatsApp</span>
+                  <WhatsAppIcon className="w-4 h-4 fill-current shrink-0" />
+                  <span>Check Date Availability on WhatsApp</span>
                 </a>
               </div>
             </div>
