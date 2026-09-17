@@ -8,6 +8,7 @@ import DiamondMark from "./DiamondMark";
 const links = [
   { href: "#about", label: "About" },
   { href: "#services", label: "Services" },
+  { href: "#menu", label: "Menu" },
   { href: "#availability", label: "Availability" },
   { href: "#faq", label: "FAQ" },
   { href: "#contact", label: "Contact" },
